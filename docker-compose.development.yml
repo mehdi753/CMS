@@ -1,0 +1,47 @@
+version: '3'
+services:
+  api:
+    image: node:lts-alpine
+    working_dir: /usr/src/app
+    command: ['yarn', 'run', 'start:dev']
+    ports:
+      - "4000:4000"
+    volumes:
+      - './api:/usr/src/app'
+      - 'storage'
+    deploy:
+      replicas: 1
+    depends_on:
+      - mongo
+      - redis
+  app:
+    image: node:lts-alpine
+    working_dir: /usr/src/app
+    command: ['yarn', 'run', 'start']
+    ports:
+      - "3000:3000"
+    volumes:
+      - './app:/usr/src/app'
+    deploy:
+      replicas: 1
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-config:/data/configdb
+      - mongo:/data/db
+    deploy:
+      replicas: 1
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+     - redis:/data
+    deploy:
+      replicas: 1
+volumes:
+  mongo:
+  mongo-config:
+  redis:

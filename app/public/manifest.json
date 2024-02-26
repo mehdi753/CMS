@@ -1,0 +1,9 @@
+{
+  "short_name": "H-CM",
+  "name": "Headless  - Content Manager",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
