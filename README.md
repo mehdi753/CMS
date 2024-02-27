@@ -9,3 +9,5 @@ After the stack has been deployed, access the cm_app terminal and run the follow
 Finally, login to the application using the following credentials
  - email: admin@hcm.com
  - password: admin123456
+
+Technologies: Docker, Docker SWARM, MongoDB, Redis, Typescript, Nodejs, Nestjs, Mongoose, React, Redux toolkit, Tailwind CSS, CQRS, Repository pattern.
